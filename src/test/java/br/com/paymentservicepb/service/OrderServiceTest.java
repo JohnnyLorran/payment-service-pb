@@ -64,6 +64,7 @@ class OrderServiceTest {
         Assertions.assertNull(result.getOrder_id());
         Assertions.assertNotNull(result.getPayment_id());
         Assertions.assertEquals(PaymentStatus.REFUSED, result.getPayment_status());
+        Assertions.assertEquals(new BigDecimal("68.13"),result.getTotal());
         Assertions.assertEquals("Transaction refused, expired card", result.getMessage());
 
     }
@@ -143,7 +144,7 @@ class OrderServiceTest {
         Payment payment = new Payment(
                 "12345667878979", "JOAO DA SILVA", "140", 10,21,brand);
         return new OrderForm(
-                "12345678910", items, new BigDecimal("50"), new BigDecimal("77.87"), paymentType, currencyType, payment);
+                "12345678910", items, new BigDecimal("51"), new BigDecimal("77.87"), paymentType, currencyType, payment);
     }
 
 }
