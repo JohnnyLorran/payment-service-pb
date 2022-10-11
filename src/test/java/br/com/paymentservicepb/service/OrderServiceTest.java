@@ -9,7 +9,6 @@ import br.com.paymentservicepb.model.enums.CurrencyType;
 import br.com.paymentservicepb.model.enums.PaymentStatus;
 import br.com.paymentservicepb.model.enums.PaymentType;
 import br.com.paymentservicepb.repository.OrderRepository;
-import com.sun.net.httpserver.HttpsServer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -18,13 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +70,7 @@ class OrderServiceTest {
 
 
     @Test
-    void getPaymentDetails() {
+    void ShouldReturnPaymentDetailsById_whenExistingId() {
 
         Mockito.when(orderService.getPaymentDetails(Mockito.anyLong())).thenReturn(getOrderDatilsByOrder_Id());
 
@@ -89,7 +81,7 @@ class OrderServiceTest {
     }
 
     @Test
-    void getAllPaymentsDetails() {
+    void ShouldReturnAllPayments() {
         List<OrderDetailsDto> detailsDtos = getAllOrdersDetails();
 
         Mockito.when(orderService.getAllPaymentsDetails()).thenReturn(detailsDtos);
@@ -122,7 +114,6 @@ class OrderServiceTest {
         detailsDtos.add(orderDetailsDto1);
 
      return detailsDtos;
-
 
     }
 
