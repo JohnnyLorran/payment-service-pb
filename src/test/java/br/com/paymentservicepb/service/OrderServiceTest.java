@@ -94,7 +94,7 @@ class OrderServiceTest {
 
     private OrderDetailsDto getOrderDatilsByOrder_Id(){
         return  new OrderDetailsDto(
-                (long)1, new BigDecimal("150.54"),
+                1L, new BigDecimal("150.54"),
                 "d3715562-3cbe-4a7e-a43d-83acbc632fd2",
                 PaymentStatus.APPROVED, "Transaction approved");
     }
@@ -102,12 +102,12 @@ class OrderServiceTest {
     private List<OrderDetailsDto> getAllOrdersDetails() {
         List<OrderDetailsDto> detailsDtos = new ArrayList<>();
         OrderDetailsDto orderDetailsDto = new OrderDetailsDto(
-                (long)2, new BigDecimal("150.54"),
+                1L, new BigDecimal("150.54"),
                 "d3715562-3cbe-4a7e-a43d-83acbc632fd2",
                 PaymentStatus.APPROVED, "Transaction approved");
 
         OrderDetailsDto orderDetailsDto1 = new OrderDetailsDto(
-                (long)2, new BigDecimal("150.54"),
+                2L, new BigDecimal("150.54"),
                 "d3715562-acbe-4a7e-a43d-83acbc632fd2",
                 PaymentStatus.REFUSED, "Transaction refused, expired card");
         detailsDtos.add(orderDetailsDto);

@@ -33,7 +33,7 @@ public class OrderController {
         if(orderDetailsDto == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return  ResponseEntity.status(HttpStatus.OK).body(orderService.getPaymentDetails(id));
+        return  ResponseEntity.status(HttpStatus.OK).body(orderDetailsDto);
     }
 
 
